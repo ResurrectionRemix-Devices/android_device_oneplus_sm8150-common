@@ -66,4 +66,7 @@
     <string name="single_tap_gesture_title">Single-tap</string>
     <string name="single_tap_gesture_summary">Pulse notifications and allow fingerprint unlock on tap</string>
     <string name="direct_enabled">Directly showing PIN/Password is Enabled. Turn this off for this option to work</string>
+
+    <string name="audio_title">Audio</string>
+    <string name="dolby_title">Dolby Atmos</string>
 </resources>
