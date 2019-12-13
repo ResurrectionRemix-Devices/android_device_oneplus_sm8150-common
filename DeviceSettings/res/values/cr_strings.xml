@@ -62,6 +62,10 @@
     <string name="fps_info_title">FPS overlay</string>
     <string name="fps_info_summary">Show overlay with with current frames per second</string>
     
-    <string name="audio_title">Audio</string>
-    <string name="dolby_title">Dolby Atmos</string>
+    <string name="audio_title">Dolby Atmos</string>
+    <string name="dolby_title">Configure</string>
+    <string name="dolby_summary">Select and configure effects</string>
+    <string name="enable_dolby_summary">Enable/disable Dolby Atmos</string>
+    <string name="enable_dolby_title">Enable</string>
+    <string name="enable_dolby_info">Enable and disable requires reboot to take effect.</string>
 </resources>
