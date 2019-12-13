@@ -61,4 +61,7 @@
     <string name="fps_title">FPS display</string>
     <string name="fps_info_title">FPS overlay</string>
     <string name="fps_info_summary">Show overlay with with current frames per second</string>
+    
+    <string name="audio_title">Audio</string>
+    <string name="dolby_title">Dolby Atmos</string>
 </resources>

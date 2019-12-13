@@ -11,6 +11,24 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="audio"
+        android:title="@string/audio_title">
+
+        <Preference
+            android:key="dolby_atmos"
+            android:title="@string/dolby_title"
+            android:summary="@string/dolby_summary"
+            android:dependency="enable_dolby_atmos"
+            android:persistent="false" >
+            <intent
+                 android:targetPackage="com.oneplus.sound.tuner"
+                 android:targetClass="com.oneplus.sound.tuner.panoramic.DolbyPanoramicSoundActivity" />
+        </Preference>
+
+    </PreferenceCategory>
+    
     <PreferenceCategory
         android:key="graphics"
         android:title="@string/display_title">
