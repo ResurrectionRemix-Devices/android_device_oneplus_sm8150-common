@@ -88,9 +88,7 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 Return<void> FingerprintInscreen::onPress() {
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 2);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1);
-#if FOD_HBM
     set(HBM_ENABLE_PATH, 1);
-#endif
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 1);
 
     return Void();
@@ -99,9 +97,7 @@ Return<void> FingerprintInscreen::onPress() {
 Return<void> FingerprintInscreen::onRelease() {
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
-#if FOD_HBM
     set(HBM_ENABLE_PATH, 0);
-#endif
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
 
     return Void();
@@ -122,9 +118,7 @@ Return<void> FingerprintInscreen::onHideFODView() {
     this->mFodCircleVisible = false;
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
-#if FOD_HBM
     set(HBM_ENABLE_PATH, 0);
-#endif
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
 
     return Void();
@@ -169,19 +163,14 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool enabled) {
 }
 
 Return<int32_t> FingerprintInscreen::getDimAmount(int32_t) {
-#if FOD_HBM
     int dimAmount = get(DIM_AMOUNT_PATH, 0);
-#else
-    int dimAmount = 0;
-#endif
-
     LOG(INFO) << "dimAmount = " << dimAmount;
 
     return dimAmount;
 }
 
 Return<bool> FingerprintInscreen::shouldBoostBrightness() {
-    return !FOD_HBM;
+    return false;
 }
 
 Return<void> FingerprintInscreen::setCallback(const sp<IFingerprintInscreenCallback>& callback) {
