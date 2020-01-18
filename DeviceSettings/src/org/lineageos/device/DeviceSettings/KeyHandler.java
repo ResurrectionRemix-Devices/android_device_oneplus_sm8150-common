@@ -34,6 +34,7 @@ import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.os.SystemClock;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.os.Vibrator;
 import android.os.VibrationEffect;
 import android.provider.Settings;
@@ -51,6 +52,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final String TAG = KeyHandler.class.getSimpleName();
     private static final int GESTURE_REQUEST = 1;
     private static String FPNAV_ENABLED_PROP = "sys.fpnav.enabled";
+    private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
 
     private static final SparseIntArray sSupportedSliderZenModes = new SparseIntArray();
     private static final SparseIntArray sSupportedSliderRingModes = new SparseIntArray();
@@ -67,6 +69,9 @@ public class KeyHandler implements DeviceKeyHandler {
         sSupportedSliderRingModes.put(Constants.KEY_VALUE_VIBRATE, AudioManager.RINGER_MODE_VIBRATE);
         sSupportedSliderRingModes.put(Constants.KEY_VALUE_NORMAL, AudioManager.RINGER_MODE_NORMAL);
     }
+
+    // Single tap key code
+    private static final int SINGLE_TAP = 67;
 
     private final Context mContext;
     private final PowerManager mPowerManager;
@@ -103,6 +108,11 @@ public class KeyHandler implements DeviceKeyHandler {
     public KeyEvent handleKeyEvent(KeyEvent event) {
         int scanCode = event.getScanCode();
         String keyCode = Constants.sKeyMap.get(scanCode);
+
+        if (scanCode == SINGLE_TAP) {
+            launchDozePulse();
+            return null;
+        }
         
         int keyCodeValue = 0;
         try {
@@ -141,4 +151,9 @@ public class KeyHandler implements DeviceKeyHandler {
         return false;
         }
 
+    private void launchDozePulse() {
+        // Note: Only works with ambient display enabled.
+        mContext.sendBroadcastAsUser(new Intent(DOZE_INTENT),
+                new UserHandle(UserHandle.USER_CURRENT));
+    }
 }
