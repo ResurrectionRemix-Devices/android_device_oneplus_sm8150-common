@@ -373,9 +373,20 @@
 
     <integer-array name="config_defaultNotificationVibePattern">
         <item>0</item>
-        <item>350</item>
-        <item>250</item>
-        <item>350</item>
+        <item>120</item>
+        <item>200</item>
+        <item>40</item>
+    </integer-array>
+
+    <!-- Vibrator pattern to be used as the default for notifications
+         that do not specify vibration but vibrate anyway because the device
+         is in vibrate mode.
+     -->
+    <integer-array name="config_notificationFallbackVibePattern">
+        <item>0</item>
+        <item>120</item>
+        <item>200</item>
+        <item>40</item>
     </integer-array>
 
     <bool name="config_enableHapticTextHandle">true</bool>
