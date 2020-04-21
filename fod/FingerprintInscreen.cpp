@@ -45,8 +45,6 @@ namespace inscreen {
 namespace V1_0 {
 namespace implementation {
 
-int dimAmount;
-
 /*
  * Write value to path and close file.
  */
@@ -86,7 +84,7 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 
 Return<void> FingerprintInscreen::onPress() {
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 2);
-    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 2);
+    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1);
     set(HBM_ENABLE_PATH, 1);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 1);
 
@@ -95,7 +93,7 @@ Return<void> FingerprintInscreen::onPress() {
 
 Return<void> FingerprintInscreen::onRelease() {
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
-    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 5);
+    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
     set(HBM_ENABLE_PATH, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
 
@@ -105,8 +103,6 @@ Return<void> FingerprintInscreen::onRelease() {
 Return<void> FingerprintInscreen::onShowFODView() {
     this->mFodCircleVisible = true;
 
-    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 2);
-    //set(HBM_DIM_PATH, getDimAmount(255));
     return Void();
 }
 
@@ -158,21 +154,10 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool enabled) {
     return Void();
 }
 
-Return<int32_t> FingerprintInscreen::getDimAmount(int32_t suggest) {
-    LOG(INFO) << "dimAmount1 = " << suggest;
-    if (suggest > 0) {
-        if (suggest < 127) {
-            dimAmount = 255 - suggest - 16;
-        } else {
-            dimAmount = 92 + get(DIM_AMOUNT_PATH, suggest);
-            if (dimAmount > 237) {
-                dimAmount = 255;
-            }
-        }
-    } else {
-        dimAmount = 180;
-    }
-    LOG(INFO) << "dimAmount2 = " << dimAmount;
+Return<int32_t> FingerprintInscreen::getDimAmount(int32_t) {
+    int dimAmount = get(DIM_AMOUNT_PATH, 0);
+    LOG(INFO) << "dimAmount = " << dimAmount;
+
     return dimAmount;
 }
 
