@@ -1,3 +1,7 @@
+on init
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/backlight_level   
+    chmod 0444 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/backlight_level
+ 
 service vendor.fingerprint-inscreen-1-1 /vendor/bin/hw/vendor.lineage.biometrics.fingerprint.inscreen@1.1-service.oneplus_msmnile
     interface vendor.lineage.biometrics.fingerprint.inscreen@1.1::IFingerprintInscreen default
     class hal

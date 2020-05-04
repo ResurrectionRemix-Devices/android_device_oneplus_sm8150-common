@@ -38,6 +38,7 @@
 #define HBM_ON_DELAY 0
 
 #define DIM_AMOUNT_PATH "/sys/class/drm/card0-DSI-1/dim_alpha"
+#define BRIGHTNESS_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/backlight_level"
 
 namespace vendor {
 namespace lineage {
