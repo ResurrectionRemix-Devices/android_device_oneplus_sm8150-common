@@ -19,8 +19,11 @@ package org.lineageos.device.DeviceSettings;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.res.Resources;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -51,6 +54,7 @@ public class DeviceSettings extends PreferenceFragment
     public static final String KEY_NIGHT_SWITCH = "night";
     public static final String KEY_WIDECOLOR_SWITCH = "widecolor";
     public static final String KEY_GESTURE_SINGLE_TAP_SWITCH = "gesture_single_tap";
+    private static final String KEY_ENABLE_DOLBY_ATMOS = "enable_dolby_atmos";
 
     public static final String KEY_SETTINGS_PREFIX = "device_setting_";
 
@@ -61,6 +65,7 @@ public class DeviceSettings extends PreferenceFragment
     private ListPreference mMiddleKeyPref;
     private ListPreference mBottomKeyPref;
     private VibratorStrengthPreference mVibratorStrength;
+    private SwitchPreference mEnableDolbyAtmos;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -96,12 +101,31 @@ public class DeviceSettings extends PreferenceFragment
         mSingleTapSwitch.setEnabled(SingleTapSwitch.isSupported());
         mSingleTapSwitch.setChecked(SingleTapSwitch.isCurrentlyEnabled(this.getContext()));
         mSingleTapSwitch.setOnPreferenceChangeListener(new SingleTapSwitch());
+
+        mEnableDolbyAtmos = (SwitchPreference) findPreference(KEY_ENABLE_DOLBY_ATMOS);
+        mEnableDolbyAtmos.setOnPreferenceChangeListener(this);
     }
 
      @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         Constants.setPreferenceInt(getContext(), preference.getKey(), Integer.parseInt((String) newValue));
-
+        if (preference == mEnableDolbyAtmos) {
+            boolean enabled = (Boolean) newValue;
+            Intent daxService = new Intent();
+            ComponentName name = new ComponentName("com.dolby.daxservice", "com.dolby.daxservice.DaxService");
+            daxService.setComponent(name);
+            if (enabled) {
+                // enable service component and start service
+                this.getContext().getPackageManager().setComponentEnabledSetting(name,
+                        PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, 0);
+                this.getContext().startService(daxService);
+            } else {
+                // disable service component and stop service
+                this.getContext().stopService(daxService);
+                this.getContext().getPackageManager().setComponentEnabledSetting(name,
+                        PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 0);
+            }
+        }
         return true;
     }
 
