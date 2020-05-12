@@ -108,8 +108,7 @@ public class DeviceSettings extends PreferenceFragment
 
      @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        Constants.setPreferenceInt(getContext(), preference.getKey(), Integer.parseInt((String) newValue));
-        if (preference == mEnableDolbyAtmos) {
+       if (preference == mEnableDolbyAtmos) {
             boolean enabled = (Boolean) newValue;
             Intent daxService = new Intent();
             ComponentName name = new ComponentName("com.dolby.daxservice", "com.dolby.daxservice.DaxService");
