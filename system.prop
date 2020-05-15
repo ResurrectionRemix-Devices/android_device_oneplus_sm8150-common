@@ -7,9 +7,6 @@ ro.audio.monitorRotation=true
 bt.max.hfpclient.connections=1
 vendor.bluetooth.soc=cherokee
 
-# Disable night light for fod
-persist.fod.night_mode_disabled=true
-
 # Camera
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.oneplus.factorymode,com.oneplus.camera,com.oneplus.healthcheck
 persist.vendor.camera.privapp.list=com.oneplus.camera
