@@ -103,3 +103,6 @@ config.disable_rtt=true
 # WiFi Display
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
+
+# Disable night light for fod
+persist.fod.night_mode_disabled=true
