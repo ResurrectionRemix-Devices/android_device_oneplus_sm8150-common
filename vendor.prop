@@ -76,6 +76,9 @@ vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_inline_rotator=1
 vendor.display.disable_scaler=0
 vendor.display.enable_null_display=0
+vendor.display.enable_optimize_refresh=1
+vendor.display.disable_ui_3d_tonemap=1
+vendor.display.disable_mask_layer_hint=1
 
 # DRM
 drm.service.enabled=true
@@ -126,6 +129,21 @@ ro.vendor.scroll.preobtain.enable=false
 
 # Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1
+
+# Automatic refresh rate switching for power savings
+debug.sf.early_phase_offset_ns=500000
+debug.sf.early_app_phase_offset_ns=500000
+debug.sf.early_gl_phase_offset_ns=3000000
+debug.sf.early_gl_app_phase_offset_ns=15000000
+debug.sf.high_fps_early_phase_offset_ns=6100000
+debug.sf.high_fps_early_gl_phase_offset_ns=9000000
+debug.sf.phase_offset_threshold_for_next_vsync_ns=6100000
+ro.surface_flinger.set_idle_timer_ms=4000
+ro.surface_flinger.set_touch_timer_ms=4000
+ro.surface_flinger.set_display_power_timer_ms=1000
+ro.surface_flinger.use_smart_90_for_video=true
+ro.surface_flinger.vsync_event_phase_offset_ns=2000000
+ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 
 # Radio
 persist.radio.multisim.config=dsds
