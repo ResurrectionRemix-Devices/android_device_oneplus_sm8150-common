@@ -54,10 +54,11 @@ class FingerprintInscreen : public IFingerprintInscreen {
     Return<int32_t> getPositionX() override;
     Return<int32_t> getPositionY() override;
     Return<int32_t> getSize() override;
-    Return<int32_t> getHbmOffDelay();
-    Return<int32_t> getHbmOnDelay();
-    Return<bool> supportsAlwaysOnHBM();
-    Return<void> switchHbm(bool enabled);
+    Return<int32_t> getHbmOffDelay() override;
+    Return<int32_t> getHbmOnDelay() override;
+    Return<bool> supportsAlwaysOnHBM() override;
+    Return<void> switchHbm(bool enabled) override;
+    Return<bool> noDim() override;
 
   private:
     bool mFodCircleVisible;
