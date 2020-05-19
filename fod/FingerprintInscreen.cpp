@@ -19,6 +19,7 @@
 #include "FingerprintInscreen.h"
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
+#include <cmath>
 #include <fstream>
 
 #define FINGERPRINT_ACQUIRED_VENDOR 6
@@ -172,8 +173,17 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool enabled) {
     return Void();
 }
 
-Return<int32_t> FingerprintInscreen::getDimAmount(int32_t) {
-    int dimAmount = get(DIM_AMOUNT_PATH, 0);
+Return<int32_t> FingerprintInscreen::getDimAmount(int32_t brightness) {
+    int dimAmount;
+    float alpha;
+    int realBrightness = brightness * 2047 / 255;
+
+    if (realBrightness > 500) {
+        alpha = 1.0 - pow(realBrightness / 2047.0 * 430.0 / 600.0, 0.455);
+    } else {
+        alpha = 1.0 - pow(realBrightness / 1680.0, 0.455);
+    }
+    dimAmount = 255 * alpha;
 
     LOG(INFO) << "dimAmount = " << dimAmount;
 
