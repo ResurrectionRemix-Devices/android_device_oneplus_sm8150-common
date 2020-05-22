@@ -100,12 +100,7 @@ Return<bool> FingerprintInscreen::noDim() {
     return true;
 }
 
-Return<void> FingerprintInscreen::switchHbm(bool enabled) {
-    if (enabled) {
-        this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1);
-    } else {
-        this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
-    }
+Return<void> FingerprintInscreen::switchHbm(bool) {
     return Void();
 }
 
@@ -123,6 +118,7 @@ Return<void> FingerprintInscreen::onRelease() {
 
 Return<void> FingerprintInscreen::onShowFODView() {
     this->mFodCircleVisible = true;
+    this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1);
 
     return Void();
 }
