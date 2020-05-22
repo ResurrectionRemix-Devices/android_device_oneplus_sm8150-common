@@ -67,8 +67,8 @@ public class DeviceSettings extends PreferenceFragment
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
 
         mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
-        if (mVibratorStrength != null) {
-            mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
+        if (mVibratorStrength == null || !VibratorStrengthPreference.isSupported()) {
+            getPreferenceScreen().removePreference((Preference) findPreference("vibrator"));
         }
 
         mTopKeyPref = (ListPreference) findPreference(Constants.NOTIF_SLIDER_TOP_KEY);
@@ -97,10 +97,9 @@ public class DeviceSettings extends PreferenceFragment
         mSingleTapSwitch.setOnPreferenceChangeListener(new SingleTapSwitch());
     }
 
-     @Override
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         Constants.setPreferenceInt(getContext(), preference.getKey(), Integer.parseInt((String) newValue));
-
         return true;
     }
 
