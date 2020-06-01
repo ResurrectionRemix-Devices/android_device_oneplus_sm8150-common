@@ -20,3 +20,7 @@ uint32_t changedFodOrder(uint32_t z, bool touched) {
     z = touched ? 0xfc8 : 0xbd6;
     return z;
 }
+
+uint32_t getFodUsageBits(uint32_t usageBits, bool) {
+    return usageBits;
+}
