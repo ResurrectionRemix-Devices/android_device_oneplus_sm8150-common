@@ -104,3 +104,6 @@ persist.sys.wfd.virtual=0
 
 # Disable night light for fod
 persist.fod.night_mode_disabled=true
+
+# Zygote
+persist.device_config.runtime_native.usap_pool_enabled=true
