@@ -925,6 +925,9 @@ vendor/lib64/liblistenjni.so
 vendor/lib64/liblistensoundmodel2.so
 vendor/lib64/libmulawdec.so
 vendor/lib64/libjnihelper.so
+-app/OPSoundTuner/OPSoundTuner.apk|4c3c86a7a2984165c76b687c7582eebe8ba109cc
+etc/permissions/com.dolby.daxservice.xml
+-priv-app/daxService/daxService.apk
 
 # Machine learning
 vendor/lib/libnpu.so
