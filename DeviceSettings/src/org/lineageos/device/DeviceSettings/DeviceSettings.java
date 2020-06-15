@@ -17,6 +17,7 @@
 */
 package org.lineageos.device.DeviceSettings;
 
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -42,6 +43,8 @@ import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
 
+import org.lineageos.internal.util.LineageLockPatternUtils;
+
 public class DeviceSettings extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
@@ -65,12 +68,13 @@ public class DeviceSettings extends PreferenceFragment
     private ListPreference mMiddleKeyPref;
     private ListPreference mBottomKeyPref;
     private VibratorStrengthPreference mVibratorStrength;
+    private LineageLockPatternUtils mLineageLockPatternUtils;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.main);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-
+        mLineageLockPatternUtils = new LineageLockPatternUtils(getContext());
         mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
         if (mVibratorStrength == null || !VibratorStrengthPreference.isSupported()) {
             getPreferenceScreen().removePreference((Preference) findPreference("vibrator"));
@@ -101,7 +105,13 @@ public class DeviceSettings extends PreferenceFragment
         mDCModeSwitch.setOnPreferenceChangeListener(new DCModeSwitch());
 
         mSingleTapSwitch = (TwoStatePreference) findPreference(KEY_GESTURE_SINGLE_TAP_SWITCH);
-        mSingleTapSwitch.setEnabled(SingleTapSwitch.isSupported());
+        boolean enabled = mLineageLockPatternUtils.shouldPassToSecurityView(ActivityManager.getCurrentUser());
+        mSingleTapSwitch.setEnabled(SingleTapSwitch.isSupported() && !enabled);
+        if (enabled) {
+            mSingleTapSwitch.setSummary(R.string.direct_enabled);
+        } else {
+            mSingleTapSwitch.setSummary(R.string.single_tap_gesture_summary);
+        }
         mSingleTapSwitch.setChecked(SingleTapSwitch.isCurrentlyEnabled(this.getContext()));
         mSingleTapSwitch.setOnPreferenceChangeListener(new SingleTapSwitch());
     }

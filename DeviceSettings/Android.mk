@@ -36,7 +36,8 @@ LOCAL_RESOURCE_DIR := \
     $(TOP)/packages/resources/devicesettings/res
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
-    vendor.oneplus.camera.CameraHIDL-V1.0-java
+    vendor.oneplus.camera.CameraHIDL-V1.0-java \
+    org.lineageos.platform.internal
 
 package_resource_overlays := $(strip \
     $(wildcard $(foreach dir, $(PRODUCT_PACKAGE_OVERLAYS), \
