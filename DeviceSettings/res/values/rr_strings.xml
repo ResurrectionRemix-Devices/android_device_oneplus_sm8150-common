@@ -62,9 +62,9 @@
     <string name="vib_notif_strength_title_head">Notification Strength</string>
     <string name="vib_notif_strength_summary_head">Define the strength of the vibrator during an incoming notification</string>
 
-    <string name="doze_category_title">Ambient display</string>
+    <string name="doze_category_title">Screen off gestures</string>
     <string name="single_tap_gesture_title">Single-tap</string>
-    <string name="single_tap_gesture_summary">Pulse notifications and allow fingerprint unlock on tap</string>
+    <string name="single_tap_gesture_summary">Allow offscreen gestures on single tap. To choose which gesture, go to touchscreen gestures below and select single tap gesture</string>
     <string name="direct_enabled">Directly showing PIN/Password is Enabled. Turn this off for this option to work</string>
 
 
