@@ -39,5 +39,7 @@
          near events -->
     <bool name="doze_brightness_sensor_reports_proximity">false</bool>
 
+    <integer name="config_maxVisibleStatusIconContainer">9</integer>
+
 
 </resources>
