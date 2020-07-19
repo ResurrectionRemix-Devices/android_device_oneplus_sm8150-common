@@ -462,9 +462,6 @@
     <!-- Smart charging -->
     <bool name="config_smartChargingAvailable">true</bool>
 
-    <!-- Radius of the software rounded corners. -->
-    <dimen name="rounded_corner_radius">140px</dimen>
-
     <!-- The default peak refresh rate for a given device. -->
     <integer name="config_defaultPeakRefreshRate">90</integer>
 

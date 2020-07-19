@@ -69,7 +69,6 @@ vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_inline_rotator=1
 vendor.display.disable_scaler=0
 vendor.display.enable_null_display=0
-vendor.display.enable_optimize_refresh=1
 vendor.display.disable_mask_layer_hint=1
 
 # DRM
@@ -123,13 +122,6 @@ ro.vendor.scroll.preobtain.enable=false
 
 # Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1
-
-# Automatic refresh rate switching for power savings
-ro.surface_flinger.set_idle_timer_ms=4000
-ro.surface_flinger.set_touch_timer_ms=4000
-ro.surface_flinger.set_display_power_timer_ms=1000
-ro.surface_flinger.use_smart_90_for_video=true
-ro.surface_flinger.refresh_rate_switching=true
 
 # Radio
 persist.radio.multisim.config=dsds
