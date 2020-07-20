@@ -521,4 +521,7 @@
         <item>0</item>
     </integer-array>
 
+    <!-- Radius of the software rounded corners. -->
+    <dimen name="rounded_corner_radius">140px</dimen>
+
 </resources>
