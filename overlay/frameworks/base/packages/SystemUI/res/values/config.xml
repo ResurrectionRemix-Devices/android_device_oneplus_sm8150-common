@@ -29,9 +29,6 @@
     <!-- Preferred refresh rate at keyguard, if supported by the display -->
     <integer name="config_keyguardRefreshRate">90</integer>
 
-    <!-- Whether to disable assist hint on lockscreen -->
-    <bool name="config_disableAssistHintOnLockscreen">true</bool>
-
     <!-- Whether the binned brightness sensor reports a value of 0 on proximity
          near events -->
     <bool name="doze_brightness_sensor_reports_proximity">false</bool>
