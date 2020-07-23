@@ -101,6 +101,7 @@
         <Preference
             android:key="audio_dolby_atmos"
             android:title="@string/dolby_title"
+            android:enabled="false"
             android:summary="@string/dolby_summary"
             android:icon="@drawable/ic_dolby_atmos"
             android:dependency="enable_dolby_atmos"
