@@ -181,6 +181,10 @@ PRODUCT_PACKAGES += \
     com.quicinc.cne \
     services-ext
 
+# CNE
+PRODUCT_PACKAGES += \
+    NgaResources
+
 # Common init scripts
 PRODUCT_PACKAGES += \
     coredump.sh \
