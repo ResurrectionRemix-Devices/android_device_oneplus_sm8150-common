@@ -2,3 +2,9 @@ allow platform_app hal_dms_hwservice:hwservice_manager find;
 allow platform_app sysfs_graphics:file r_file_perms;
 allow platform_app vendor_default_prop:file { read open getattr map };
 binder_call(platform_app, hal_dms_default)
+
+# allow platform_app to interact with sysfs_kgsl
+r_dir_file(platform_app, sysfs_kgsl)
+
+# allow platform_app to interact with sysfs_battery_supply
+r_dir_file(platform_app, sysfs_battery_supply)
