@@ -540,4 +540,5 @@
         <item>org.lineageos.camerahelper.KeyHandler</item>
     </string-array>
 
+    <bool name="config_haveHigherAspectRatioScreen">true</bool>
 </resources>
