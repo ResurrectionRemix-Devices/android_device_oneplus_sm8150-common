@@ -22,4 +22,5 @@
 <resources>
     <!-- Bottom margin size when fingerprint in display is active -->
     <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">20dp</dimen>
+    <dimen name="status_bar_extra_padding">15dp</dimen>
 </resources>
