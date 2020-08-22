@@ -30,5 +30,6 @@
     <integer name="config_keyguardRefreshRate">90</integer>
 
     <integer name="config_maxVisibleStatusIconContainer">9</integer>
+    <bool name="config_customCutout">true</bool>
 
 </resources>
