@@ -512,6 +512,9 @@
         <item>0</item>
     </integer-array>
 
+    <!-- Radius of the software rounded corners. -->
+    <dimen name="rounded_corner_radius">140px</dimen>
+
     <!-- Radius of the software rounded corners at the bottom of the display
          in its natural orientation. If zero, the value of rounded_corner_radius is used. -->
     <dimen name="rounded_corner_radius_bottom">100px</dimen>
@@ -538,7 +541,4 @@
     </string-array>
 
     <bool name="config_haveHigherAspectRatioScreen">true</bool>
-
-    <!-- Radius of the software rounded corners. -->
-    <dimen name="rounded_corner_radius">140px</dimen>
 </resources>

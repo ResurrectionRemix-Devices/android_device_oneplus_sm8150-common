@@ -20,12 +20,6 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
-    <!-- Custom cutout overlay view sizes -->
-    <dimen name="config_customCutoutTopWidth">223.0px</dimen>
-    <dimen name="config_customCutoutTopHeight">223.0px</dimen>
-    <dimen name="config_customCutoutBottomWidth">223.0px</dimen>
-    <dimen name="config_customCutoutBottomHeight">223.0px</dimen>
-
     <!-- Bottom margin size when fingerprint in display is active -->
     <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">20dp</dimen>
     <dimen name="status_bar_extra_padding">15dp</dimen>
