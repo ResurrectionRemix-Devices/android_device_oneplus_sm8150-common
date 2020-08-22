@@ -512,10 +512,6 @@
         <item>0</item>
     </integer-array>
 
-    <!-- Radius of the software rounded corners at the bottom of the display
-         in its natural orientation. If zero, the value of rounded_corner_radius is used. -->
-    <dimen name="rounded_corner_radius_bottom">100px</dimen>
-
     <string name="config_sysCPUTemp">/sys/class/thermal/thermal_zone4/temp</string>
     <string name="config_sysBatteryTemp">/sys/class/power_supply/battery/temp</string>
     <string name="config_sysGPUFreq">/sys/kernel/gpu/gpu_clock</string>
@@ -541,4 +537,6 @@
 
     <!-- Radius of the software rounded corners. -->
     <dimen name="rounded_corner_radius">140px</dimen>
+
+    <dimen name="rounded_corner_radius_bottom">100px</dimen>
 </resources>
