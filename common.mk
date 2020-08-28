@@ -525,3 +525,5 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+TARGET_HAS_FOD := true
