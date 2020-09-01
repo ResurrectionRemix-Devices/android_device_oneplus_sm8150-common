@@ -527,3 +527,7 @@ PRODUCT_BOOT_JARS += \
     WfdCommon
 
 TARGET_HAS_FOD := true
+
+# Signing Keys
+PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/oss/keys/releasekey
+
