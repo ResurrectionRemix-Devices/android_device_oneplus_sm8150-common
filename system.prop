@@ -104,3 +104,7 @@ persist.sys.wfd.virtual=0
 
 # Disable night light for fod
 persist.fod.night_mode_disabled=true
+
+# ADB props
+ro.secure=1 
+ro.debuggable=0
