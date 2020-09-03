@@ -2,3 +2,7 @@
 audio.sys.noisy.broadcast.delay=600
 audio.offload.min.duration.secs=30
 audio.sys.offload.pstimeout.secs=3
+
+# Gestural Navigation Set As Default
+ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural
+
