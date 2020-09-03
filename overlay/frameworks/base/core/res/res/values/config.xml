@@ -539,4 +539,7 @@
     <dimen name="rounded_corner_radius">140px</dimen>
 
     <dimen name="rounded_corner_radius_bottom">100px</dimen>
+
+    <!-- Whether the device has a popup camera -->
+    <bool name="config_hasPopupCamera">true</bool>
 </resources>
