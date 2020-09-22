@@ -559,5 +559,7 @@
         <item>com.touchtype.swiftkey.beta</item>
         <item>com.touchtype.swiftkey</item>
     </string-array>
-    
+
+    <bool name="config_fodScreenOffDoze">false</bool>
+
 </resources>
