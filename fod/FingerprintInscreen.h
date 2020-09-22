@@ -61,7 +61,6 @@ class FingerprintInscreen : public IFingerprintInscreen {
     Return<bool> noDim() override;
 
   private:
-    bool mFodCircleVisible;
 
     sp<IOneplusDisplay> mVendorDisplayService;
     sp<IVendorFingerprintExtensions> mVendorFpService;
