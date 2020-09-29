@@ -537,3 +537,5 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.usb.config=mtp,adb \
     persist.service.debuggable=1 \
     persist.service.adb.enable=1
+
+BUILD_RR_WALLPAPERS:= true
