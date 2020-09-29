@@ -530,6 +530,8 @@ PRODUCT_BOOT_JARS += \
 
 TARGET_HAS_FOD := true
 
+BUILD_RR_WALLPAPERS:= true
+
 # Signing Keys
 PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/oss/keys/releasekey
 
