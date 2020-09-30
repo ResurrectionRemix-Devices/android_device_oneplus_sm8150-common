@@ -12,3 +12,6 @@ hal_client_domain(system_app, hal_pasrmanager)
 
 # allow system_app to interact with sysfs_battery_supply
 r_dir_file(system_app, sysfs_battery_supply)
+
+typeattribute system_app hal_fingerprint_client;
+allow system_app hal_fingerprint_hwservice:hwservice_manager find;
