@@ -111,7 +111,3 @@ ro.debuggable=0
 
 # Zygote
 persist.device_config.runtime_native.usap_pool_enabled=true
-
-ro.adb.secure=0
-persist.sys.usb.config=mtp,adb 
-
