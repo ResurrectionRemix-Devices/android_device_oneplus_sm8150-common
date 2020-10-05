@@ -1,1 +1,6 @@
 allow priv_app sysfs_battery_supply:file r_file_perms;
+
+# Allow priv_app to find hal_cameraHIDL_hwservice
+allow priv_app hal_cameraHIDL_hwservice:hwservice_manager find;
+binder_call(priv_app, hal_cameraHIDL_default)
+binder_call(priv_app, hal_cameraHIDL_hwservice)
