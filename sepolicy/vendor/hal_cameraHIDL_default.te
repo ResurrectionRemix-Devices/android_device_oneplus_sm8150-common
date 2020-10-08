@@ -19,3 +19,4 @@ allow hal_cameraHIDL_default vendor_camera_data_file:dir { remove_name };
 allow hal_cameraHIDL_default vendor_camera_data_file:dir { unlink };
 allow hal_cameraHIDL_default vendor_camera_data_file:file { unlink };
 allow hal_cameraHIDL_default vendor_camera_data_file:file { create };
+allow hal_cameraHIDL_default vendor_camera_data_file:dir { create };
