@@ -39,8 +39,18 @@
             android:key="dc"
             android:icon="@drawable/rr_dc_dim_icon"
             android:summary="@string/dc_mode_summary"
+            android:visible="false"
             android:title="@string/dc_mode_title"
             android:defaultValue="true" />
+
+    <Preference
+        android:key="dc_dim"
+        android:enabled="true"
+        android:icon="@drawable/rr_dc_dim_icon"
+        android:title="@string/dc_mode_title"
+        android:summary="@string/dc_mode_summary">
+        <intent android:action="android.settings.DC_DIMMING_SETTINGS" />
+    </Preference>
 
         <Preference
             android:key="panel_category"
