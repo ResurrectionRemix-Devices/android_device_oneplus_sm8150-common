@@ -105,7 +105,9 @@ public class DeviceSettings extends PreferenceFragment
         mHBMAutobrightnessSwitch.setOnPreferenceChangeListener(this);
 
         mDCModeSwitch = (TwoStatePreference) findPreference(KEY_DC_SWITCH);
-        mDCModeSwitch.setVisible(false);
+        mDCModeSwitch.setEnabled(DCModeSwitch.isSupported());
+        mDCModeSwitch.setChecked(DCModeSwitch.isCurrentlyEnabled(this.getContext()));
+        mDCModeSwitch.setOnPreferenceChangeListener(new DCModeSwitch());
 
         mSingleTapSwitch = (TwoStatePreference) findPreference(KEY_GESTURE_SINGLE_TAP_SWITCH);
         boolean enabled = mLineageLockPatternUtils.shouldPassToSecurityView(ActivityManager.getCurrentUser());

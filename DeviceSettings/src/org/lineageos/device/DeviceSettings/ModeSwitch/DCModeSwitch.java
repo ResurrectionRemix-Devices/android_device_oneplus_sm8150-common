@@ -37,15 +37,17 @@ public class DCModeSwitch implements OnPreferenceChangeListener {
     }
 
     public static boolean isSupported() {
-        return false;
+        return Utils.fileWritable(getFile());
     }
 
     public static boolean isCurrentlyEnabled(Context context) {
-        return false;
+        return Utils.getFileValueAsBoolean(getFile(), false);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return false;
+        Boolean enabled = (Boolean) newValue;
+        Utils.writeValue(getFile(), enabled ? "1" : "0");
+        return true;
     }
 }
